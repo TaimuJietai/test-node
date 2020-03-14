@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>压缩代码</title>
+  <style>
+    .old-code {
+      width: 100%;
+      height: 30vh;
+      box-sizing: border-box;
+      padding: 20px;
+      resize: none;
+    }
+    .new-code {
+      width: 100%;
+      height: 30vh;
+      box-sizing: border-box;
+      padding: 20px;
+      resize: none;
+    }
+
+    .set-button {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <textarea class="old-code" id="old-code"></textarea>
+  <div class="set-button">
+    <button onclick="sendCode()">压缩</button>
+  </div>
+  <textarea class="new-code" id="new-code"></textarea>
+  <script>
+    function sendCode() {
+      var xhr = new XMLHttpRequest();
+      // 使用 HTTP POST 请求与服务器交互数据
+      xhr.open('POST', "/set-code-post", true);
+      // 设置发送数据的请求格式
+      xhr.setRequestHeader('content-type', 'application/json');
+      xhr.onreadystatechange = function () {
+        document.getElementById('new-code').innerHTML = xhr.responseText;
+      };
+      //  将用户输入值序列化成字符串
+      xhr.send(JSON.stringify({
+        code: document.getElementById('old-code').value
+      }));
+    }
+  </script>
+</body>
+
+</html>

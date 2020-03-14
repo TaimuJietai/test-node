@@ -1,0 +1,25 @@
+{
+  "name": "down-file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --max_old_space_size=4096 index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ip": "^1.1.5",
+    "kcors": "^2.2.2",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-ejs": "^4.3.0",
+    "koa-gzip": "^0.1.0",
+    "koa-router": "^8.0.8",
+    "koa-static-cache": "^5.1.2",
+    "terser-webpack-plugin": "^2.3.5",
+    "webpack": "^4.42.0",
+    "websocket": "^1.0.31"
+  }
+}
